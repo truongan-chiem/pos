@@ -1,0 +1,217 @@
+@use '../../sass/' as *;
+
+.table-account{
+    padding: 3rem 2rem 5rem 2rem;
+    height: 100%;
+    @include mobile{
+        padding: 3rem 1rem ;
+        overflow: hidden;
+    }
+    font-size: 2rem;
+    &__createAcc{
+        z-index: 5;
+        position: fixed;
+        bottom: 3rem;
+        right: 2rem;
+        font-size: 4rem;
+        background-color: $main-color;
+        color: $white;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        &:hover{
+            background-color: transparent;
+            color: $main-color;
+        }
+        @include mobile{
+            font-size: 2.5rem;
+        }
+    }
+    & > .input {
+        border: 1px solid $main-color;
+        & > .input__text{
+            padding: 0.5rem 0;
+        }
+    }
+}
+
+.modal-formCreateUser{
+    width: 50%;
+    position: relative;
+    &__close{
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 3rem;
+        color: $main-color;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover{
+            color: rgba($color: $main-color, $alpha: 0.4);
+        }
+    }
+}
+.form-addAccount{
+    padding: 0 2rem;
+    & > * ~ *{
+        margin-top: 1rem;
+    }
+    &__header{
+        text-align: center;
+        font-weight: 700;
+        font-size: 3rem;
+        @include mobile{
+            font-size: 2rem
+        }
+    }
+    &__wrapInput{
+        @include flex(center,flex-start);
+        & > *{
+            width: 100%;
+        }
+        & > * ~ *{
+            margin-left: 2rem;
+        }
+    }
+    &__btn{
+        @include flex(center,center);
+    }
+    .errorInput{
+        border: 1px solid red !important;
+        & > label{
+            color: red;
+        }
+        & > input{
+            color :red
+        }
+    }
+}
+
+
+.table{
+    padding: 1rem 0;
+    width: 100%;
+    height: 100%;
+    &__header{
+        @include flex(center,flex-start);
+        width: 100%;
+        position: relative;
+        padding: 1rem 0;
+        &::after{
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #000;
+        }
+        & > *{
+            flex: 1;
+            font-weight: bold;
+            font-size: 1.7rem;
+            text-transform: capitalize;
+            text-align: center;
+            @include mobile{
+                font-size: 1.2rem;
+            }
+        }
+        & > *:first-child{
+            text-align: start
+        }
+        & > *:last-child{
+            text-align: end
+        }
+
+    }
+    &__body{
+        height: 80%;
+        overflow-y: auto;
+        padding: 0 1rem;
+        width: 100%;
+        margin-bottom: 1rem;
+        &__row{
+            @include flex(center,flex-start);
+            position: relative;
+            &-item{
+                flex: 1;
+                text-align: center;
+                text-transform: capitalize;
+                padding: 1rem 0;
+                font-size: 1.5rem;
+                &.fname{
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                    &:hover{
+                        color: $main-color;
+                    }
+                }
+                @include mobile{
+                    font-size: 1.2rem;
+                }
+                &  img{
+                    width: 5rem;
+                    height: 5rem;
+                    border-radius: 50%;
+                    @include mobile{
+                        width: 3rem;
+                        height: 3rem;
+                    }
+                }
+                & > .tableAccount__btn{
+                    width: 4rem;
+                    height: 2.4rem;
+                    font-size: 0.9rem;
+                    @include mobile{
+                        width: 3rem;
+                        font-size: 0.8rem;
+                    }
+                    &.del{
+                        background-color: #FF5C5D;
+                        margin-left: 1rem;
+                        &:hover{
+                            background-color:#FF8A8A;
+                        }
+                        @include mobile{
+                            margin-left: 0;
+                        }
+                    }
+                    &.edit{
+                        background-color: #6395EC;
+                        &:hover{
+                            background-color: #89CFF0;
+                        }
+                    }
+                }
+            }
+           
+            & > *:first-child{
+                text-align: start;
+            }
+            & > *:last-child{
+                text-align: end;
+            }
+        }
+        & > * ~ *::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 1px;
+            background: rgba($color: gray, $alpha: 0.6);
+            top: 0;
+            left: 0;
+        }
+    }
+    &__empty{
+        @include flex(center,center);
+        width: 100%;
+        height: 100%;
+        font-size: 4rem;
+        font-weight: 700;
+        color: rgba($color: gray, $alpha: 0.6);
+        & > svg{
+            margin-right: 2rem;
+        }
+    }
+}

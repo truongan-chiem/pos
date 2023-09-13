@@ -1,0 +1,13 @@
+@use "../../sass/" as *;
+
+.setting {
+  @include flex(center, space-between);
+  @include desktop{
+    &.container{
+      padding: 0 2rem;
+    }
+  }
+}
+.modal__form{
+  width: 50%;
+}

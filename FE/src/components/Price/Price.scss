@@ -1,0 +1,21 @@
+@use '../../sass/' as *;
+.price{
+    font-size: 1.5rem;
+    font-weight: 600;
+  
+    &-black{
+        color: $black;
+    }
+    &-gray{
+        color: rgba($color: $black, $alpha: 0.4);
+    }
+    &-primary{
+        color: $main-color;
+    }
+    &-red{
+        color: $red;
+    }
+    &-green{
+        color: $green;
+    }
+}

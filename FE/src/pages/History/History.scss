@@ -1,0 +1,244 @@
+@use '../../sass/' as *;
+
+.history{
+    padding-bottom: 0rem !important;
+    @include mobile{
+        & > .header{
+            margin-top: 1rem;
+        }
+    }
+    &__box{
+        padding: 1rem 2rem;
+        margin-top: 1rem;
+        @include mobile{
+            margin-top: 2rem;
+        }
+    }
+    
+    &__header{
+        @include flex(center,space-between);
+        &__report{
+            @include flex(center,flex-start);
+            font-size: 1.6rem;
+            font-weight: 600;
+            &-item{
+                @include flex(center,center);
+                margin: 0 1rem;
+                & > h3{
+                    margin-right: 0.4rem;
+                    color:$main-color;
+                    font-weight: bold;
+                }
+            }
+            @include tablet{
+                font-size: 1.4rem;
+                &-item{
+                    margin: 0 1rem;
+                    & > h3{
+                        margin-right: 0.2rem;
+                    }
+                    & > .price{
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+            @include mobile{
+                margin-bottom: 1rem;
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: start;
+                &-item{
+                    margin: 1rem 0;
+                    & > .price{
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+        &__date{
+            @include flex(center,flex-start);
+            & .calendarWrap__input{
+                padding: 1.4rem;
+            }
+            & > button{
+                outline: none;
+                border: 1px solid $main-color;
+                background: white;
+                padding: 1.6rem 1.6rem ;
+                color:$main-color;
+                margin: 0 0.5rem;
+                border-radius: 1rem;
+                text-transform: capitalize;
+                font-size: 1.4rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                &:hover{
+                    background: $main-color;
+                    color: white;
+                }
+                @include tablet{
+                    font-size: 1.4rem;
+                    padding: 1rem 2rem;
+                }
+                @include mobile{
+                    font-size: 1.1rem;
+                    border-radius: 0.7rem;
+                    padding: 1rem;
+                }
+            }
+            @include tablet{
+                width: 100%;
+                @include flex(center,space-between);
+                margin-top: 1rem;
+                & > .calendarWrap{
+                    & > .calendarWrap__input{
+                        padding: 0.9rem !important;
+                        & > svg{
+                            width: 1.4rem;
+                            height: 1.4rem;
+                        }
+                    }
+                }
+            }
+            @include mobile{
+               
+                & > .calendarWrap{
+                    & > .calendarWrap__input{
+                        padding: 1rem !important;
+                        & > svg{
+                            width: 1rem;
+                            height: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+        @include tablet{
+            @include flex(flex-start,flex-start);
+            flex-direction: column;
+        }
+    }
+    &__body{
+        width: 100%;
+        margin-top: 2rem;
+        font-size: 1.6rem;
+        &__loading{
+            height: 40rem;
+            @include flex(center,center);
+            & > svg{
+                font-weight: 700;
+                color: $main-color;
+                font-size: 4rem;
+                animation: loading 1s infinite;
+            }
+            
+        }
+        &__payment{
+            background-color: #56C3C9;
+            border-radius: 1rem;
+            width:8rem;
+            height: 4rem;
+            color: $white;
+            @include flex(center,center);
+            @include desktop{
+                width:6rem;
+                height: 3rem;
+            }
+            &.cash{
+                background-color: $green;
+            }
+            &.e-wallet{
+                background-color: #56C3C9;
+            }
+        }
+        & > .table {  
+            & > .table__body > .table__body__row > .table__body__row-item{
+                text-align: center;
+                & > .iconMore{
+                    cursor: pointer;
+                }
+            }
+            & > .table__header {
+                & > div{
+                text-align: center ;
+                font-size: 2rem;
+                }
+            }
+
+        } 
+        & > .table > .table__body > .table__body__row > .table__body__row-item:last-child{
+            @include flex(center,center);
+            & > div{
+                width: fit-content;
+            }
+        }
+        @include tablet{
+            & > .table{
+                & > .table__header > div{
+                    font-size: 1.4rem ;
+                } 
+                & > .table__body > .table__body__row > .table__body__row-item{
+                    font-size: 1.2rem;
+                    & > .price{
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                    }
+                }
+    
+            }
+        }
+        
+    }
+    &__btn{
+        color: $black;
+        font-weight: 600;
+        width: 100%;
+        border-radius: 0.4rem;
+        transition: all 0.3s ease;
+        padding: 0.4rem 0;
+        text-transform: capitalize;
+        &.view{
+            border: 1px solid $green;
+            background-color: rgba($color: $green, $alpha: 0.6);
+            &:hover{
+                cursor: pointer;
+                background-color: $green;
+            }
+        }
+        &.del{
+            border: 1px solid $red;
+            background-color: rgba($color: $red, $alpha: 0.7);
+            margin-top: 0.4rem;
+            &:hover{
+                cursor: pointer;
+                background-color: $red;
+            }
+        }
+    }
+}
+.pointer{
+    cursor: pointer;
+    @include flex(center,center);
+    & > * ~*{
+        margin-left: 0.4rem;
+    }
+}
+#no-result-history{
+    width: 100%;
+    @include flex(center,center);
+    color: gray;
+    height: 40rem;
+    & > svg{
+        font-size: 5rem;
+    }
+    & > p{
+        font-size: 3rem;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+    @include mobile{
+        flex-direction: column;
+    }
+}
+

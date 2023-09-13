@@ -1,0 +1,90 @@
+@use '../../sass/' as *;
+
+.tab-content{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    &__header{
+        flex: 0 1 auto;
+        @include flex(center,space-between);
+        &__title{
+            @include flex(center,center);
+            & > * ~ *{
+                margin-left: 1rem;
+            }
+            & > h1{
+                font-weight: 700;
+                text-transform: capitalize;
+            }
+            & > .btn{
+                width: fit-content;
+                height: fit-content;
+                padding: 1rem 2rem;
+                background: rgba($color: $main-color, $alpha: 0.3);
+                border-color: transparent;
+                color: rgba($color: gray, $alpha: 0.7);
+                border-radius: 0.5rem;
+                &.activeSort{
+                    background: $main-color;
+                    color: white;
+                    &:hover{
+                        color: white;
+                    }
+                }
+                &.activeHot{
+                    background: #e93a3a;
+                    color: white;
+                }
+                &:hover{
+                    border-color: $main-color;
+                    color: $main-color;
+                }
+                @include mobile{
+                    padding: 1rem;
+                    font-size: 1rem;
+                }
+            }
+        }
+        & > span{
+            color: rgba($color: $black, $alpha: 0.5);
+            font-size: 1.5rem;
+            text-transform: capitalize;
+        }
+    }
+    &__body{
+        flex : 1 1 auto;
+        overflow: overlay;
+        display: grid;
+        grid-template-columns: repeat(2 , minmax(0,1fr));
+        gap: 2rem;
+        justify-content: center;
+        align-content: flex-start;
+        padding: 1.5rem;
+        @include desktopLg{
+            grid-template-columns: repeat(1 , minmax(0,1fr));
+        };
+        &__empty{
+            @include flex(center , center);
+            font-size: 4rem;
+            color: rgba($color: gray, $alpha: 0.7);
+            height: 38rem;
+            grid-column: span 2;
+            font-weight: 700;
+            & > svg{
+                margin-right: 2rem;
+            }
+        }
+    }
+}
+
+.product__loading{
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    color: $main-color;
+    animation: loading 1s infinite;
+}
